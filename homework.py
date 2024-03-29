@@ -8,7 +8,7 @@ class My_GUI:
         self.main_window.geometry('1000x400')
         self.main_window.title('Label Demo')
 
-        self.label1 = tkniter.Label(self.main_window, text='Responsive Registration')
+        self.label1 = tkinter.Label(self.main_window, text='Responsive Registration')
         self.label2 = tkinter.Label(self.main_window, text='Form')
 
         self.label1.pack()
@@ -41,7 +41,62 @@ class My_GUI:
         self.repassword_entry.pack(side='left')
 
         self.first_name_label = tkinter.Label(self.mid_frame3, text='First Name: ')
-        self.first_name_entry = tkinter.Entry(self.mid_frame3, width=20)
+        self.first_name_entry = tkinter.Entry(self.mid_frame3, width=10)
 
         self.first_name_label.pack(side='left')
         self.first_name_entry.pack(side='left')
+
+        self.last_name_label = tkinter.Label(self.mid_frame3, text='Last Name: ')
+        self.last_name_entry = tkinter.Entry(self.mid_frame3, width=10)
+
+        self.last_name_label.pack(side='left')
+        self.last_name_entry.pack(side='left')
+
+        
+
+        self.radio_var = tkinter.IntVar()
+
+        self.rb1 = tkinter.Radiobutton(self.mid_frame4,
+                                       text="Male",
+                                       variable=self.radio_var,
+                                       value=1)
+        
+        self.rb2 = tkinter.Radiobutton(self.mid_frame4,
+                                       text="Female",
+                                       variable=self.radio_var,
+                                       value=2)
+        self.rb1.pack(side='left')
+        self.rb2.pack(side='left')
+
+        self.cb_var1 = tkinter.IntVar()
+        self.cb_var2 = tkinter.IntVar()
+
+        self.cb1 = tkinter.Checkbutton(self.bottom_frame,
+                                       text="I agree with terms and conditions",
+                                       variable=self.cb_var1)
+        
+        self.cb2 = tkinter.Checkbutton(self.bottom_frame,
+                                       text="I want to receive the newsletter",
+                                       variable=self.cb_var2)
+        
+        self.cb1.pack()
+        self.cb2.pack()
+
+        self.register_button = tkinter.Button(self.bottom_frame, text='Register', command=self.thank_you)
+
+        self.register_button.pack()
+
+        self.top_frame.pack()
+        self.mid_frame1.pack()
+        self.mid_frame2.pack()
+        self.mid_frame3.pack()
+        self.mid_frame4.pack()
+        self.bottom_frame.pack()
+
+        tkinter.mainloop()
+
+
+    def user_validation(self):
+        tkinter.messagebox.showinfo('Thank you for registering!')
+
+my_gui = My_GUI()
